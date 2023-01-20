@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import tasks from "../myArr.json";
 import NumberSelectBox from "./NumberSelectBox";
 import Pegination from "./Pegination";
 import TableRow from "./TableRow";
 
-const Table = ({ tasksArr, setCheckedTasks, checkedTasks, isTableVisible }) => {
+const Table = ({ allTasks, setCheckedTasks, checkedTasks, isTableVisible }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [howManyRowWillBeShown, setHowManyRowWillBeShown] = useState(10);
   const [selectedPage, setSelectedPage] = useState(1);
@@ -13,16 +12,16 @@ const Table = ({ tasksArr, setCheckedTasks, checkedTasks, isTableVisible }) => {
 
   const handleAllCheck = (e) => {
     setIsAllChecked(!isAllChecked);
-    setCheckedTasks(tasks.map((task) => task.id));
+    setCheckedTasks(allTasks.map((task) => task.id));
     if (isAllChecked) setCheckedTasks([]);
   };
 
   useEffect(() => {
     const startRow = (selectedPage - 1) * howManyRowWillBeShown;
     const endRow = startRow + howManyRowWillBeShown;
-    const newTasksArr = tasks.slice(startRow, endRow);
+    const newTasksArr = allTasks.slice(startRow, endRow);
     setTasksToDisplay(newTasksArr);
-  }, [howManyRowWillBeShown, selectedPage]);
+  }, [howManyRowWillBeShown, selectedPage, allTasks]);
 
   return (
     <div className={`mx-5 mt-4 border border-1 rounded ${!isTableVisible && 'd-none'}`}>
@@ -57,7 +56,7 @@ const Table = ({ tasksArr, setCheckedTasks, checkedTasks, isTableVisible }) => {
       <div className="d-flex flex-row ps-2 pb-1">
         <NumberSelectBox setHowManyRowWillBeShown={setHowManyRowWillBeShown} />
         <Pegination
-          numberOfPages={Math.ceil(tasks.length / howManyRowWillBeShown)}
+          numberOfPages={Math.ceil(allTasks.length / howManyRowWillBeShown)}
           setSelectedPage={setSelectedPage}
           selectedPage={selectedPage}
         />
