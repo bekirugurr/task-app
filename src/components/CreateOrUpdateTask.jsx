@@ -12,11 +12,16 @@ const initialValues = {
   status: "Not Started",
 };
 
+//! Hem create hem update için bu component'ı kullandım. Ayrı ayrı kullansam bu component biraz daha kısa olurdu. Ama reusebility için iki operasyon için tek component kullandım.
+//! Create yapmak istediğimde isCreateOrUpdate prop'unu 'create' olarak gönderdim, Update yapmak istediğimde isCreateOrUpdate prop'unu 'update' olarak gönderdim
+
 const CreateOrUpdateTask = ({ isCreateOrUpdate, task }) => {
   const [show, setShow] = useState(false);
   const [taskValues, setTaskValues] = useState(initialValues);
-const {fetchData} = useContext(TaskContext);
+  const { fetchData } = useContext(TaskContext);
 
+
+  //! Eğer yaptığım işlem update ise compenent render olduğunda doğrudan update edilecek task'in verilerini state aktarıyor ve controllerd formun inputlarına basıyor
   useEffect(() => {
     if (isCreateOrUpdate === "update") {
       setTaskValues({
@@ -79,10 +84,14 @@ const {fetchData} = useContext(TaskContext);
   return (
     <>
       <Button
-        variant="danger"
+        variant="primary"
         onClick={handleShow}
-        className={`${isCreateOrUpdate === 'create'? "me-3 border-0 rounded text-light pb-2 pt-1" : "rounded border-0 my-0 pt-0 pb-1"}`}
-        style={{ width: "7rem", backgroundColor: "#662ba1" }}
+        className={`btn btn-primary  ${
+          isCreateOrUpdate === "create"
+            ? "me-3 pb-2 pt-1 fw-semibold"
+            : " my-0 pt-0 pb-1"
+        }`}
+        style={{ width: "7rem" }}
       >
         {isCreateOrUpdate[0].toUpperCase() + isCreateOrUpdate.slice(1)} Task
       </Button>
@@ -150,10 +159,10 @@ const {fetchData} = useContext(TaskContext);
             </Form.Group>
             <div className="d-flex justify-content-end">
               <Button
-                variant="danger"
+                variant="primary"
                 type="submit"
                 className="border-0 rounded text-light pb-2 pt-1"
-                style={{ backgroundColor: "#662ba1", width: "5rem" }}
+                style={{ width: "5rem" }}
               >
                 {isCreateOrUpdate[0].toUpperCase() + isCreateOrUpdate.slice(1)}
               </Button>
