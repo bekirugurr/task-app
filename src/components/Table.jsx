@@ -5,7 +5,7 @@ import NumberSelectBox from "./NumberSelectBox";
 import Pegination from "./Pegination";
 import TableRow from "./TableRow";
 
-const Table = ({ tasksArr, setCheckedTasks, checkedTasks }) => {
+const Table = ({ tasksArr, setCheckedTasks, checkedTasks, isTableVisible }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [howManyRowWillBeShown, setHowManyRowWillBeShown] = useState(10);
   const [selectedPage, setSelectedPage] = useState(1);
@@ -25,7 +25,7 @@ const Table = ({ tasksArr, setCheckedTasks, checkedTasks }) => {
   }, [howManyRowWillBeShown, selectedPage]);
 
   return (
-    <div className="m-5 border border-1 rounded">
+    <div className={`mx-5 mt-4 border border-1 rounded ${!isTableVisible && 'd-none'}`}>
       <table className="table table-striped ps-2">
         <thead>
           <tr className="border-bottom border-2 border-dark">
