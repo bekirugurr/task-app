@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { TaskContext } from '../Context/TaskContext';
 
-const DeleteButtonAndModal = ({checkedTasks, handleDelete}) => {
+const DeleteButtonAndModal = ({handleDelete}) => {
   const [show, setShow] = useState(false);
+  const {deleteAndFetch} = useContext(TaskContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const deleteAndCloseModel = () => {
-    handleDelete()
+    deleteAndFetch()
     handleClose()
   }
   

@@ -1,14 +1,15 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { TaskContext } from "../Context/TaskContext";
 import NumberSelectBox from "./NumberSelectBox";
 import Pegination from "./Pegination";
 import TableRow from "./TableRow";
 
-const Table = ({ allTasks, setCheckedTasks, checkedTasks, isTableVisible }) => {
+const Table = ({ isTableVisible }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [howManyRowWillBeShown, setHowManyRowWillBeShown] = useState(10);
   const [selectedPage, setSelectedPage] = useState(1);
   const [tasksToDisplay, setTasksToDisplay] = useState([]);
+  const {allTasks, setCheckedTasks } = useContext(TaskContext)
 
   const handleAllCheck = (e) => {
     setIsAllChecked(!isAllChecked);
@@ -46,9 +47,7 @@ const Table = ({ allTasks, setCheckedTasks, checkedTasks, isTableVisible }) => {
           {tasksToDisplay.map((task) => (
             <TableRow
               key={task.id}
-              {...task}
-              setCheckedTasks={setCheckedTasks}
-              checkedTasks={checkedTasks}
+              task={task}
             />
           ))}
         </tbody>

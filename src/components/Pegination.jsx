@@ -14,8 +14,8 @@ const Pegination = ({ numberOfPages, setSelectedPage, selectedPage }) => {
               ? {
                   backgroundColor: "white",
                   color: "#662ba1",
-                  outlineOffset: "-1px",
-                  outline: "1px solid #662ba1",
+                  outlineOffset: "-2px",
+                  outline: "2px solid #662ba1",
                 }
               : { backgroundColor: "#662ba1", color: "white" }
           }
