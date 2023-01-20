@@ -17,17 +17,17 @@ const TableRow = ({
 
   return (
     <tr>
-      <td>
+      <td className="border border-1 ps-3" style={{width:'3rem'}}>
         <input
           type="checkbox"
           onChange={(e)=>handleClick(e)}
           checked={checkedTasks.includes(id)}
         />
       </td>
-      <td>{id}</td>
-      <td>{project_name}</td>
-      <td>{task_name}</td>
-      <td>{status}</td>
+      <td className="border border-1">{id}</td>
+      <td className="border border-1">{project_name}</td>
+      <td className="border border-1">{task_name}</td>
+      <td className="border border-1">{status}</td>
     </tr>
   );
 };
