@@ -88,15 +88,23 @@ const CreateOrUpdateTask = ({ isCreateOrUpdate, task }) => {
         onClick={handleShow}
         className={`btn btn-primary  ${
           isCreateOrUpdate === "create"
-            ? "me-3 pb-2 pt-1 fw-semibold"
-            : " my-0 pt-0 pb-1"
+            ? "me-1 me-md-3 mb-2 pb-2 pt-1 fw-semibold px-0 px-sm-2 px-sm-"
+            : " my-0 pt-0 pb-1 px-0 px-md-2"
         }`}
-        style={{ width: "7rem" }}
       >
-        {isCreateOrUpdate[0].toUpperCase() + isCreateOrUpdate.slice(1)} Task
+        {isCreateOrUpdate[0].toUpperCase() + isCreateOrUpdate.slice(1)}
+        <span
+          className={`${
+            isCreateOrUpdate === "update"
+              ? "d-none d-md-inline-block ps-md-1"
+              : "d-inline"
+          }`}
+        >
+          Task
+        </span>
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} id='custom-create-update-modal'>
         <Modal.Header closeButton>
           <Modal.Title>
             <span className="px-3">
@@ -106,7 +114,7 @@ const CreateOrUpdateTask = ({ isCreateOrUpdate, task }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="d-flex-col mx-3" onSubmit={handleSubmit}>
+          <Form className="d-flex-col me-0" onSubmit={handleSubmit}>
             <Form.Group className="mb-4" controlId="formId">
               <Form.Label className="ps-1">
                 <strong>Id: </strong>

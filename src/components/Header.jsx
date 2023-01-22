@@ -7,10 +7,9 @@ const Header = ({ isTableVisible, setIsTableVisible }) => {
   const { checkedTasks } = useContext(TaskContext);
 
   return (
-    <div className="mx-5 mt-4">
+    <div className="mx-1 mx-lg-5 mt-4">
       <button
-        className="me-3 btn btn-primary text-light pb-2 pt-1 fw-semibold"
-        style={{ width: "7rem" }}
+        className="me-1 me-md-3 mb-2 btn btn-primary text-light px-0 px-sm-2 pb-2 pt-1 fw-semibold"
         onClick={() => setIsTableVisible(!isTableVisible)}
       >
         {isTableVisible ? "Hide" : "Show"} Tasks

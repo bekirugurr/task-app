@@ -19,14 +19,20 @@ const DeleteButtonAndModal = ({ handleDelete }) => {
       <Button
         variant="danger"
         onClick={handleShow}
-        className="fw-semibold me-3 border-0 rounded text-light pb-2 pt-1"
-        style={{ width: "7rem" }}
+        className="fw-semibold mb-2 border-0 rounded text-light px-0  px-sm-2 pb-2 pt-1"
       >
         Delete Task
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        aria-labelledby="custom-modal-size"
+        id="custom-delete-modal"
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Are you sure?</Modal.Title>
+          <Modal.Title >
+            Are you sure?
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           You are about to delete the selected tasks permanently...

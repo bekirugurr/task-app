@@ -7,7 +7,7 @@ function App() {
   const [isTableVisible, setIsTableVisible] = useState(false);
 
   return (
-    <main className="mx-5">
+    <main className="mx-0 mx-md-5 ">
       <Header
         isTableVisible={isTableVisible}
         setIsTableVisible={setIsTableVisible}

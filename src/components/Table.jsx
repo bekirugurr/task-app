@@ -27,14 +27,14 @@ const Table = ({ isTableVisible }) => {
 
   return (
     <div
-      className={`mx-5 mt-4 border border-1 rounded ${
+      className={`mx-1 mx-lg-5 mt-4 border border-1 rounded ${
         !isTableVisible && "d-none"
       }`}
     >
-      <table className="table table-striped ps-2">
+      <table className="table table-striped">
         <thead>
           <tr className="border-bottom border-2 border-dark">
-            <th className="border border-1 ps-3" style={{ width: "3rem" }}>
+            <th className="border border-1 ps-md-3" style={{ width: "3rem" }}>
               <input
                 type="checkbox"
                 onChange={(e) => {
@@ -43,10 +43,11 @@ const Table = ({ isTableVisible }) => {
                 style={{ width: "1rem", height: "1rem" }}
               />
             </th>
-            <th className="border border-1">Task Id</th>
-            <th className="border border-1">Project Name</th>
-            <th className="border border-1">Task Name</th>
-            <th className="border border-1">Status</th>
+            <th className="border border-1 text-center">Task Id</th>
+            <th className="border border-1 text-center">Project Name</th>
+            <th className="border border-1 text-center">Task Name</th>
+            <th className="border border-1 text-center">Status</th>
+            <th className="border border-1 text-center">Update</th>
           </tr>
         </thead>
         <tbody>
