@@ -10,6 +10,7 @@
 - Update ve Create için aynı component’i kullandım. Ayrı ayrı kullansam bu component biraz daha kısa olurdu. Ama reusebility için iki operasyon için tek component kullandım. 
 - Fake api olarak kullandığım mockapi.io task’i update ederken id’sini değiştirmeye izin vermiyor ve aynı şekilde yeni bir task oluşturuken id’yi bizim atamamıza izin vermiyor. Kendisi atıyor. Benden kaynaklamayan bu husus haricinde bütün isterleri karşıladığımı düşünüyorum. 
 - Open source bir API kullandığım için (mockapi.io) için ara ara da olsa  (özellikle delete işlemlerinde) hata yapıyor. İncelen kişi delete işleminde hata aldığında yeniden bir-iki defa denerse sorunsuz çalıştığını ve sorunun API'den kaynaklandığını görecekter.  
+- Task'i zamanında gönderdim. Ama responsive olmasını ayarlamasını unuttuğum için sadece o kısmı sonradan ekledim. 
 
 ## Component Mimarisi:
 <img src='./project_structure.png'>
